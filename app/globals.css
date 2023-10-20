@@ -70,7 +70,7 @@
 }
 
 .home__filters {
-  @apply mt-12 w-full flex-between items-center flex-wrap gap-5;
+  @apply mt-12 w-full justify-between flex items-start flex-wrap gap-5; /* items-center => items-baseline && flex-between => justify-between + flex */
 }
 
 .home__filter-container {
@@ -188,7 +188,7 @@
 
 /* START: searchbar styles */
 .searchbar {
-  @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
+  @apply flex items-start justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl; /* items-center => items-start */
 }
 
 .searchbar__item {
