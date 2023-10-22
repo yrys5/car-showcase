@@ -49,7 +49,7 @@ const SearchManufacturer = ({
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <Combobox.Options>
+            <Combobox.Options className="max-h-60 overflow-auto">
               {filteredManufacturers.map((item) => (
                 <Combobox.Option
                   key={item}

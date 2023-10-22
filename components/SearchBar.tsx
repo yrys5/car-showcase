@@ -5,19 +5,51 @@ import { SearchManufacturer } from ".";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+// V1
+// const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
+//   return (
+//     <button type="submit" className={`-ml-3 z-5 p-1 ${otherClasses}`}>
+//       <Image
+//         src="/magnifying-glass.svg"
+//         alt="magnifying-glass"
+//         width={40}
+//         height={40}
+//         className="object-contain"
+//       />
+//     </button>
+//   );
+// };
+
+
+// V2
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
+  const [isSearching, setIsSearching] = useState(false);
+
+  const handleSearchClick = () => {
+    setIsSearching(true);
+
+    setTimeout(() => {
+      setIsSearching(false);
+    }, 1000);
+  };
+
   return (
-    <button type="submit" className={`-ml-3 z-5 p-1 ${otherClasses}`}>
+    <button 
+      type="submit" 
+      className={`-ml-3 z-5 p-1 max-sm:cursor-default ${otherClasses}`} 
+      onClick={handleSearchClick}
+    >
       <Image
         src="/magnifying-glass.svg"
         alt="magnifying-glass"
         width={40}
         height={40}
-        className="object-contain"
+        className={`object-contain ${isSearching ? 'max-sm:animate-spin' : ''}`}
       />
     </button>
   );
 };
+
 
 const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState("");
